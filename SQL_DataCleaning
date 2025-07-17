@@ -1,0 +1,87 @@
+This SQL query is looking for any non-uniform data in the film table. 
+(
+SELECT DISTINCT 
+    film_id,
+    title,
+    release_year,
+    language_id,
+    rental_duration,
+    rental_rate,
+    length,
+    replacement_cost,
+    rating,
+    last_update
+FROM film
+ORDER BY
+    rating,
+    rental_duration,
+    rental_rate,
+    replacement_cost
+)
+All data was uniform. 
+
+
+This SQL query is looking for any non-uniform data in the customer table. 
+(
+SELECT DISTINCT 
+    customer_id,
+    store_id,
+    first_name,
+    last_name,
+    email, 
+    address_id,
+    activebool,
+    create_date,
+    last_update,
+    active
+FROM customer
+ORDER BY
+    activebool
+)
+All data was uniform. 
+
+
+This SQL query is looking for duplicate data in the film table. 
+(
+SELECT
+    film_id,
+    title,
+    release_year,
+    language_id,
+    rental_duration,
+    rating,
+COUNT (*)
+FROM film
+ORDER BY
+    film_id,
+    title,
+    release_year,
+    language_id,
+    rental_duration,
+    rating
+HAVING COUNT (*) >1;
+)
+No duplicates found. 
+
+
+This SQL query is looking for duplicate data in the customer table. 
+(
+SELECT
+    customer_id,
+    store_id,
+    first_name,
+    last_name,
+    email,
+    address_id,
+    activebool,
+    create_date,
+    last_update,
+    active,
+COUNT (*)
+FROM customer
+ORDER BY
+    customer_id,
+    activebool
+HAVING COUNT (*) >1;
+)
+No duplicates found. 
