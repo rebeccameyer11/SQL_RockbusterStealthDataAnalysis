@@ -19,3 +19,5 @@ Rockbuster Stealth LLC is a movie rental company that previously had stores arou
 
 ## Data Overview
 The data set contains information about Rockbuster's film inventory, customers, and payments, among other things. 
+
+Tableau visualizations used in presentation: <a href="https://public.tableau.com/views/A3FinalStory/A3FinalStory?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link">View visualizations in Tableau</a>
