@@ -1,4 +1,4 @@
-This SQL query is looking for any non-uniform data in the film table. 
+SQL query looking for any non-uniform data in the film table: 
 (
 SELECT DISTINCT 
     film_id,
@@ -21,50 +21,7 @@ ORDER BY
 All data was uniform. 
 
 
-This SQL query is looking for any non-uniform data in the customer table. 
-(
-SELECT DISTINCT 
-    customer_id,
-    store_id,
-    first_name,
-    last_name,
-    email, 
-    address_id,
-    activebool,
-    create_date,
-    last_update,
-    active
-FROM customer
-ORDER BY
-    activebool
-)
-All data was uniform. 
-
-
-This SQL query is looking for duplicate data in the film table. 
-(
-SELECT
-    film_id,
-    title,
-    release_year,
-    language_id,
-    rental_duration,
-    rating,
-COUNT (*)
-FROM film
-ORDER BY
-    film_id,
-    title,
-    release_year,
-    language_id,
-    rental_duration,
-    rating
-HAVING COUNT (*) >1;
-)
-No duplicates found. 
-
-
-This SQL query is looking for duplicate data in the customer table. 
+SQL query looking for duplicate data in the customer table: 
 (
 SELECT
     customer_id,
@@ -85,3 +42,38 @@ ORDER BY
 HAVING COUNT (*) >1;
 )
 No duplicates found. 
+
+
+Finding the MIN, MAX, and AVG in the film table:
+(
+SELECT
+-- rental rate
+        MIN(rental_rate) AS min_rent;
+        MAX(rental_rate) AS max_rent;
+        AVG(rental_rate) AS avg_rent;
+        COUNT(rental_rate) AS count_rent_values;
+-- rental duration
+        MIN(rental_duration) AS min_uration;
+        MAX(rental_duration) AS max_uration;
+        AVG(rental_duration) AS avg_uration;
+        COUNT(rental_duration) AS count_uration_values;
+-- length
+        MIN(length) AS min_length;
+        MAX(length) AS max_length;
+        AVG(length) AS avg_length;
+        COUNT(length) AS count_length_values;
+-- repalcement cost
+        MIN(repalcement_cost) AS min_cost;
+        MAX(repalcement_cost) AS max_cost;
+        AVG(repalcement_cost) AS avg_cost;
+        COUNT(repalcement_cost) AS count_cost_values;
+    COUNT(*) AS count_rows
+FROM film;
+)
+
+
+SQL MODE in the film table:
+(
+SELECT MODE() WITHIN GROUP (ORDER BY title)
+    AS modal_value
+FROM film;
